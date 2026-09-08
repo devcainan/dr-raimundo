@@ -1,0 +1,785 @@
+{
+  "viewports": {
+    "360x740": {
+      "horizontalOverflow": 26,
+      "pageHeight": 10330,
+      "overflowingElements": [
+        {
+          "sel": "span.ph__tag",
+          "left": 47,
+          "right": 386
+        }
+      ],
+      "smallText": [
+        {
+          "sel": "hero__eyebrow",
+          "px": 10,
+          "text": "Rinoplastia. Blefaroplastia e otorrino."
+        }
+      ],
+      "smallTapTargets": [
+        {
+          "sel": "button.nav-toggle",
+          "text": "Menu",
+          "w": 92,
+          "h": 38
+        },
+        {
+          "sel": "a.link-quiet",
+          "text": "Ver todas na ficha do consul",
+          "w": 239,
+          "h": 22
+        },
+        {
+          "sel": "a.contato__phone-link",
+          "text": "(84) 99634-9544",
+          "w": 171,
+          "h": 31
+        },
+        {
+          "sel": "a.link-quiet",
+          "text": "Abrir no Google Maps",
+          "w": 157,
+          "h": 22
+        },
+        {
+          "sel": "a.footer__link",
+          "text": "Ver no mapa",
+          "w": 88,
+          "h": 21
+        },
+        {
+          "sel": "a.footer__link",
+          "text": "(84) 99634-9544",
+          "w": 124,
+          "h": 21
+        },
+        {
+          "sel": "a.footer__link",
+          "text": "@drraimundovinicius",
+          "w": 151,
+          "h": 21
+        },
+        {
+          "sel": "a.footer__link",
+          "text": "Termos de uso e Política de ",
+          "w": 247,
+          "h": 18
+        }
+      ],
+      "longestLines": [
+        {
+          "chars": 46,
+          "cls": "form__privacy",
+          "text": "Ao enviar, abrimos o WhatsApp com "
+        },
+        {
+          "chars": 43,
+          "cls": "bento__note section__note",
+          "text": "Resultados variam conforme a anato"
+        },
+        {
+          "chars": 43,
+          "cls": "credentials",
+          "text": "CRM/RN 2271\n          ·\n          "
+        },
+        {
+          "chars": 39,
+          "cls": "hero__lede",
+          "text": "Otorrinolaringologista e cirurgião"
+        },
+        {
+          "chars": 37,
+          "cls": "cell cell--6 card",
+          "text": "Correção estética e funcional do n"
+        },
+        {
+          "chars": 37,
+          "cls": "cell cell--6 card",
+          "text": "Cirurgia das pálpebras, que renova"
+        }
+      ]
+    },
+    "390x844": {
+      "horizontalOverflow": 0,
+      "pageHeight": 10231,
+      "overflowingElements": [],
+      "smallText": [
+        {
+          "sel": "hero__eyebrow",
+          "px": 10,
+          "text": "Rinoplastia. Blefaroplastia e otorrino."
+        }
+      ],
+      "smallTapTargets": [
+        {
+          "sel": "button.nav-toggle",
+          "text": "Menu",
+          "w": 92,
+          "h": 38
+        },
+        {
+          "sel": "a.link-quiet",
+          "text": "Ver todas na ficha do consul",
+          "w": 239,
+          "h": 22
+        },
+        {
+          "sel": "a.contato__phone-link",
+          "text": "(84) 99634-9544",
+          "w": 171,
+          "h": 31
+        },
+        {
+          "sel": "a.link-quiet",
+          "text": "Abrir no Google Maps",
+          "w": 157,
+          "h": 22
+        },
+        {
+          "sel": "a.footer__link",
+          "text": "Ver no mapa",
+          "w": 88,
+          "h": 21
+        },
+        {
+          "sel": "a.footer__link",
+          "text": "(84) 99634-9544",
+          "w": 124,
+          "h": 21
+        },
+        {
+          "sel": "a.footer__link",
+          "text": "@drraimundovinicius",
+          "w": 151,
+          "h": 21
+        },
+        {
+          "sel": "a.footer__link",
+          "text": "Termos de uso e Política de ",
+          "w": 247,
+          "h": 18
+        }
+      ],
+      "longestLines": [
+        {
+          "chars": 51,
+          "cls": "form__privacy",
+          "text": "Ao enviar, abrimos o WhatsApp com "
+        },
+        {
+          "chars": 47,
+          "cls": "bento__note section__note",
+          "text": "Resultados variam conforme a anato"
+        },
+        {
+          "chars": 47,
+          "cls": "credentials",
+          "text": "CRM/RN 2271\n          ·\n          "
+        },
+        {
+          "chars": 43,
+          "cls": "hero__lede",
+          "text": "Otorrinolaringologista e cirurgião"
+        },
+        {
+          "chars": 41,
+          "cls": "cell cell--6 card",
+          "text": "Correção estética e funcional do n"
+        },
+        {
+          "chars": 41,
+          "cls": "cell cell--6 card",
+          "text": "Cirurgia das pálpebras, que renova"
+        }
+      ]
+    },
+    "768x1024": {
+      "horizontalOverflow": 0,
+      "pageHeight": 7765,
+      "overflowingElements": [],
+      "smallText": [
+        {
+          "sel": "hero__eyebrow",
+          "px": 10,
+          "text": "Rinoplastia. Blefaroplastia e otorrino."
+        }
+      ],
+      "smallTapTargets": [
+        {
+          "sel": "button.nav-toggle",
+          "text": "Menu",
+          "w": 92,
+          "h": 38
+        },
+        {
+          "sel": "a.link-quiet",
+          "text": "Ver todas na ficha do consul",
+          "w": 239,
+          "h": 22
+        },
+        {
+          "sel": "a.contato__phone-link",
+          "text": "(84) 99634-9544",
+          "w": 171,
+          "h": 31
+        },
+        {
+          "sel": "a.footer__link",
+          "text": "Ver no mapa",
+          "w": 88,
+          "h": 21
+        },
+        {
+          "sel": "a.footer__link",
+          "text": "(84) 99634-9544",
+          "w": 124,
+          "h": 21
+        },
+        {
+          "sel": "a.footer__link",
+          "text": "@drraimundovinicius",
+          "w": 151,
+          "h": 21
+        },
+        {
+          "sel": "a.footer__link",
+          "text": "Termos de uso e Política de ",
+          "w": 247,
+          "h": 18
+        }
+      ],
+      "longestLines": [
+        {
+          "chars": 85,
+          "cls": "bento__note section__note",
+          "text": "Resultados variam conforme a anato"
+        },
+        {
+          "chars": 76,
+          "cls": "ph ph--note bento__note",
+          "text": "Nota interna — remover antes de pu"
+        },
+        {
+          "chars": 68,
+          "cls": "section__lede",
+          "text": "O pós-operatório faz parte do trat"
+        },
+        {
+          "chars": 66,
+          "cls": "hero__lede",
+          "text": "Otorrinolaringologista e cirurgião"
+        },
+        {
+          "chars": 52,
+          "cls": "cell cell--8 card",
+          "text": "Diagnóstico e tratamento de questõ"
+        },
+        {
+          "chars": 49,
+          "cls": "strip__text",
+          "text": "Avaliação individualizada para pac"
+        }
+      ]
+    },
+    "1024x768": {
+      "horizontalOverflow": 0,
+      "pageHeight": 7214,
+      "overflowingElements": [],
+      "smallText": [],
+      "smallTapTargets": [
+        {
+          "sel": "a",
+          "text": "Procedimentos",
+          "w": 93,
+          "h": 25
+        },
+        {
+          "sel": "a",
+          "text": "Sobre",
+          "w": 37,
+          "h": 25
+        },
+        {
+          "sel": "a",
+          "text": "Como funciona",
+          "w": 95,
+          "h": 25
+        },
+        {
+          "sel": "a",
+          "text": "Dúvidas",
+          "w": 49,
+          "h": 25
+        },
+        {
+          "sel": "a.btn",
+          "text": "Contato",
+          "w": 96,
+          "h": 35
+        },
+        {
+          "sel": "a.link-quiet",
+          "text": "Ver todas na ficha do consul",
+          "w": 239,
+          "h": 22
+        },
+        {
+          "sel": "a.contato__phone-link",
+          "text": "(84) 99634-9544",
+          "w": 183,
+          "h": 32
+        },
+        {
+          "sel": "a.link-quiet",
+          "text": "Abrir no Google Maps",
+          "w": 157,
+          "h": 22
+        },
+        {
+          "sel": "a.footer__link",
+          "text": "Ver no mapa",
+          "w": 88,
+          "h": 21
+        },
+        {
+          "sel": "a.footer__link",
+          "text": "(84) 99634-9544",
+          "w": 124,
+          "h": 21
+        },
+        {
+          "sel": "a.footer__link",
+          "text": "@drraimundovinicius",
+          "w": 151,
+          "h": 21
+        },
+        {
+          "sel": "a.footer__link",
+          "text": "Termos de uso e Política de ",
+          "w": 247,
+          "h": 18
+        }
+      ],
+      "longestLines": [
+        {
+          "chars": 99,
+          "cls": "ph ph--note bento__note",
+          "text": "Nota interna — remover antes de pu"
+        },
+        {
+          "chars": 85,
+          "cls": "bento__note section__note",
+          "text": "Resultados variam conforme a anato"
+        },
+        {
+          "chars": 79,
+          "cls": "section__lede",
+          "text": "O pós-operatório faz parte do trat"
+        },
+        {
+          "chars": 68,
+          "cls": "cell cell--8 card",
+          "text": "Diagnóstico e tratamento de questõ"
+        },
+        {
+          "chars": 66,
+          "cls": "hero__lede",
+          "text": "Otorrinolaringologista e cirurgião"
+        },
+        {
+          "chars": 64,
+          "cls": "strip__text",
+          "text": "Avaliação individualizada para pac"
+        }
+      ]
+    },
+    "1440x900": {
+      "horizontalOverflow": 0,
+      "pageHeight": 7176,
+      "overflowingElements": [],
+      "smallText": [],
+      "smallTapTargets": [
+        {
+          "sel": "a",
+          "text": "Procedimentos",
+          "w": 93,
+          "h": 25
+        },
+        {
+          "sel": "a",
+          "text": "Sobre",
+          "w": 37,
+          "h": 25
+        },
+        {
+          "sel": "a",
+          "text": "Como funciona",
+          "w": 95,
+          "h": 25
+        },
+        {
+          "sel": "a",
+          "text": "Dúvidas",
+          "w": 49,
+          "h": 25
+        },
+        {
+          "sel": "a.btn",
+          "text": "Contato",
+          "w": 96,
+          "h": 35
+        },
+        {
+          "sel": "a.link-quiet",
+          "text": "Ver todas na ficha do consul",
+          "w": 239,
+          "h": 22
+        },
+        {
+          "sel": "a.contato__phone-link",
+          "text": "(84) 99634-9544",
+          "w": 183,
+          "h": 32
+        },
+        {
+          "sel": "a.link-quiet",
+          "text": "Abrir no Google Maps",
+          "w": 157,
+          "h": 22
+        },
+        {
+          "sel": "a.footer__link",
+          "text": "Ver no mapa",
+          "w": 88,
+          "h": 21
+        },
+        {
+          "sel": "a.footer__link",
+          "text": "(84) 99634-9544",
+          "w": 124,
+          "h": 21
+        },
+        {
+          "sel": "a.footer__link",
+          "text": "@drraimundovinicius",
+          "w": 151,
+          "h": 21
+        },
+        {
+          "sel": "a.footer__link",
+          "text": "Termos de uso e Política de ",
+          "w": 247,
+          "h": 18
+        }
+      ],
+      "longestLines": [
+        {
+          "chars": 117,
+          "cls": "ph ph--note bento__note",
+          "text": "Nota interna — remover antes de pu"
+        },
+        {
+          "chars": 85,
+          "cls": "bento__note section__note",
+          "text": "Resultados variam conforme a anato"
+        },
+        {
+          "chars": 81,
+          "cls": "cell cell--8 card",
+          "text": "Diagnóstico e tratamento de questõ"
+        },
+        {
+          "chars": 79,
+          "cls": "section__lede",
+          "text": "O pós-operatório faz parte do trat"
+        },
+        {
+          "chars": 74,
+          "cls": "form__privacy",
+          "text": "Ao enviar, abrimos o WhatsApp com "
+        },
+        {
+          "chars": 70,
+          "cls": "strip__text",
+          "text": "Avaliação individualizada para pac"
+        }
+      ]
+    },
+    "1920x1080": {
+      "horizontalOverflow": 0,
+      "pageHeight": 7356,
+      "overflowingElements": [],
+      "smallText": [],
+      "smallTapTargets": [
+        {
+          "sel": "a",
+          "text": "Procedimentos",
+          "w": 93,
+          "h": 25
+        },
+        {
+          "sel": "a",
+          "text": "Sobre",
+          "w": 37,
+          "h": 25
+        },
+        {
+          "sel": "a",
+          "text": "Como funciona",
+          "w": 95,
+          "h": 25
+        },
+        {
+          "sel": "a",
+          "text": "Dúvidas",
+          "w": 49,
+          "h": 25
+        },
+        {
+          "sel": "a.btn",
+          "text": "Contato",
+          "w": 96,
+          "h": 35
+        },
+        {
+          "sel": "a.link-quiet",
+          "text": "Ver todas na ficha do consul",
+          "w": 239,
+          "h": 22
+        },
+        {
+          "sel": "a.contato__phone-link",
+          "text": "(84) 99634-9544",
+          "w": 183,
+          "h": 32
+        },
+        {
+          "sel": "a.link-quiet",
+          "text": "Abrir no Google Maps",
+          "w": 157,
+          "h": 22
+        },
+        {
+          "sel": "a.footer__link",
+          "text": "Ver no mapa",
+          "w": 88,
+          "h": 21
+        },
+        {
+          "sel": "a.footer__link",
+          "text": "(84) 99634-9544",
+          "w": 124,
+          "h": 21
+        },
+        {
+          "sel": "a.footer__link",
+          "text": "@drraimundovinicius",
+          "w": 151,
+          "h": 21
+        },
+        {
+          "sel": "a.footer__link",
+          "text": "Termos de uso e Política de ",
+          "w": 247,
+          "h": 18
+        }
+      ],
+      "longestLines": [
+        {
+          "chars": 117,
+          "cls": "ph ph--note bento__note",
+          "text": "Nota interna — remover antes de pu"
+        },
+        {
+          "chars": 85,
+          "cls": "bento__note section__note",
+          "text": "Resultados variam conforme a anato"
+        },
+        {
+          "chars": 81,
+          "cls": "cell cell--8 card",
+          "text": "Diagnóstico e tratamento de questõ"
+        },
+        {
+          "chars": 79,
+          "cls": "section__lede",
+          "text": "O pós-operatório faz parte do trat"
+        },
+        {
+          "chars": 74,
+          "cls": "form__privacy",
+          "text": "Ao enviar, abrimos o WhatsApp com "
+        },
+        {
+          "chars": 70,
+          "cls": "strip__text",
+          "text": "Avaliação individualizada para pac"
+        }
+      ]
+    }
+  },
+  "interactions": {},
+  "meta": {
+    "lang": "pt-BR",
+    "title": "Dr. Raimundo Vinícius — Rinoplastia e Cirurgia Plástica Facial em Natal/RN",
+    "titleLength": 74,
+    "description": "Otorrinolaringologista e cirurgião plástico facial em Natal/RN. Rinoplastia, blefaroplastia e cirurgias otorrinolaringológicas com planejamento individualizado e resultados naturais. CRM/RN 2271 · RQE 2271.",
+    "descriptionLength": 206,
+    "ogImage": null,
+    "ogUrl": null,
+    "canonical": null,
+    "favicon": false,
+    "jsonLd": 0,
+    "h1Count": 1,
+    "headings": [
+      {
+        "level": 1,
+        "text": "Especialista em cirurgia plástica facial em Natal."
+      },
+      {
+        "level": 2,
+        "text": "Duas formações, uma única consulta"
+      },
+      {
+        "level": 2,
+        "text": "Procedimentos"
+      },
+      {
+        "level": 3,
+        "text": "Rinoplastia"
+      },
+      {
+        "level": 3,
+        "text": "Blefaroplastia"
+      },
+      {
+        "level": 3,
+        "text": "Consultas e cirurgias otorrinolaringológicas"
+      },
+      {
+        "level": 2,
+        "text": "Recuperação acompanhada de perto"
+      },
+      {
+        "level": 2,
+        "text": "Depoimentos"
+      },
+      {
+        "level": 2,
+        "text": "Perguntas frequentes"
+      },
+      {
+        "level": 3,
+        "text": "A cirurgia é dolorida? Como é a recuperação?"
+      },
+      {
+        "level": 3,
+        "text": "Existe idade mínima ou máxima para operar?"
+      },
+      {
+        "level": 3,
+        "text": "A rinoplastia muda a respiração, além da estética?"
+      },
+      {
+        "level": 3,
+        "text": "Como funciona a primeira consulta de avaliação?"
+      },
+      {
+        "level": 2,
+        "text": "Agende sua avaliação"
+      }
+    ],
+    "headingJumps": [],
+    "landmarks": {
+      "header": 6,
+      "nav": 1,
+      "main": 1,
+      "footer": 1,
+      "sections": 9,
+      "sectionsWithoutName": 0
+    },
+    "imgsWithoutAlt": 0,
+    "imgCount": 7,
+    "linksNoName": 0,
+    "externalLinksNoRel": 0,
+    "fontsUsed": [
+      "Inter",
+      "Fraunces"
+    ],
+    "formFields": [
+      {
+        "id": "nome",
+        "type": "text",
+        "required": true,
+        "label": true,
+        "autocomplete": "name"
+      },
+      {
+        "id": "mensagem",
+        "type": "textarea",
+        "required": false,
+        "label": true,
+        "autocomplete": null
+      }
+    ],
+    "stylesheets": [
+      "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap",
+      "file:///C:/Users/ninos/OneDrive/Documentos/cainan/sites/dr%20raimundo/assets/css/styles.css"
+    ],
+    "scriptCount": 1
+  },
+  "console": [],
+  "axe": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": "a[href$=\"#procedimentos\"]",
+            "summary": "  Element's background color could not be determined due to a background gradient"
+          },
+          {
+            "target": "a[href$=\"#sobre\"]",
+            "summary": "  Element's background color could not be determined due to a background gradient"
+          },
+          {
+            "target": "a[href$=\"#resultados\"]",
+            "summary": "  Element's background color could not be determined due to a background gradient"
+          },
+          {
+            "target": "a[href$=\"#faq\"]",
+            "summary": "  Element's background color could not be determined due to a background gradient"
+          }
+        ]
+      },
+      {
+        "id": "frame-tested",
+        "impact": "critical",
+        "help": "Frames should be tested with axe-core",
+        "nodes": [
+          {
+            "target": "iframe",
+            "summary": "  The iframe still has to be tested with axe-core"
+          }
+        ]
+      }
+    ]
+  },
+  "perf": {
+    "resourceCount": 1,
+    "totalTransferKB": 1,
+    "slowest": [
+      {
+        "n": "css2?family=Fraunces:opsz,wght@9..144,40",
+        "ms": 410
+      }
+    ],
+    "domContentLoaded": 1332,
+    "loadComplete": 2098,
+    "fontsLoaded": "loaded"
+  }
+}

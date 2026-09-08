@@ -1,0 +1,17 @@
+{
+  "name": "dr-raimundo",
+  "version": "1.0.0",
+  "description": "Página única (one-page) de conversão para otorrinolaringologia e cirurgia plástica facial em Natal/RN. HTML semântico + CSS puro (tokens em `:root`) + JavaScript vanilla. Sem build, sem dependências.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "axe-core": "^4.13.0",
+    "playwright": "^1.62.1"
+  }
+}

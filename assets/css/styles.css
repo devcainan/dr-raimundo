@@ -1,0 +1,1461 @@
+/* =====================================================================
+   Dr. Raimundo Vinícius — Landing page
+   Sistema de design: tokens em :root. Nenhuma cor deve ser escrita
+   fora das variáveis abaixo.
+   ===================================================================== */
+
+:root {
+  /* --- Paleta (seção 2.1 do briefing) --- */
+  --navy-deep: #0B1D33;
+  --navy-mid:  #0F2A47;
+  --cream:     #F7F5F0;
+  --ink:       #1C1C1C;
+  --gold:      #C9A24B;
+  --steel:     #8FA8BF;
+  --white:     #FFFFFF;
+  --coal:      #0A0908;   /* preto quente do hero fotográfico */
+  --sand:      #CBA97C;   /* dourado claro do hero (botão, destaques) */
+  --sand-lo:   #DCC59E;
+  --sand-hi:   #BE9A69;
+
+  /* Derivados (apenas transparências dos tokens acima) */
+  --gold-hover:      #B8913F;
+  --ink-soft:        rgba(28, 28, 28, .72);
+  --ink-line:        rgba(28, 28, 28, .14);
+  --white-soft:      rgba(255, 255, 255, .78);
+  --steel-line:      rgba(143, 168, 191, .28);
+  --steel-line-str:  rgba(143, 168, 191, .48);
+  --steel-fill:      rgba(143, 168, 191, .07);
+  --steel-fill-str:  rgba(143, 168, 191, .12);
+  --gold-line:       rgba(201, 162, 75, .38);
+  --gold-fill:       rgba(201, 162, 75, .10);
+  --navy-veil:       rgba(11, 29, 51, .82);
+
+  /* Vidro da cápsula do header e do menu mobile */
+  --glass:           rgba(10, 9, 8, .34);
+  --glass-strong:    rgba(10, 9, 8, .72);
+  --glass-line:      rgba(255, 255, 255, .10);
+  --glass-line-str:  rgba(255, 255, 255, .26);
+
+  /* Véus sobre a fotografia do hero */
+  --veil-00:         rgba(10, 9, 8, 0);
+  --veil-20:         rgba(10, 9, 8, .20);
+  --veil-60:         rgba(10, 9, 8, .60);
+  --veil-70:         rgba(10, 9, 8, .70);
+  --veil-82:         rgba(10, 9, 8, .82);
+  --veil-92:         rgba(10, 9, 8, .92);
+
+  --white-mute:      rgba(255, 255, 255, .55);
+  --sand-grad:       linear-gradient(155deg, var(--sand-lo) 0%, var(--sand) 55%, var(--sand-hi) 100%);
+
+  /* --- Tipografia --- */
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+
+  /* Escala modular ~1.25 */
+  --fs-100: .75rem;    /* 12px  — labels, notas */
+  --fs-200: .8125rem;  /* 13px  — meta */
+  --fs-300: .9375rem;  /* 15px  — corpo pequeno */
+  --fs-400: 1rem;      /* 16px  — corpo */
+  --fs-500: 1.125rem;  /* 18px  — lede */
+  --fs-600: 1.375rem;  /* 22px  — h3 */
+  --fs-700: 1.75rem;   /* 28px  — h2 mobile */
+  --fs-800: 2.25rem;   /* 36px  — h1 mobile */
+
+  /* --- Espaço e forma --- */
+  --shell: 1180px;
+  --bar: 1020px;          /* largura da cápsula do header e do texto do hero */
+  --bar-h: 5rem;          /* altura da cápsula */
+  --bar-top: 1.75rem;     /* respiro entre o topo da página e a cápsula */
+  --gutter: 1.375rem;
+  --slab-edge: .5rem;      /* folga entre a laje e a borda da tela */
+  --slab-pad: 1.375rem;   /* respiro interno da laje */
+  --space-section: 4.5rem;
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-lg: 18px;
+  --radius-slab: 2rem;     /* canto das lajes escuras */
+  --radius-pill: 999px;
+
+  /* --- Movimento --- */
+  --t-fast: 180ms cubic-bezier(.4, 0, .2, 1);
+  --t-base: 230ms cubic-bezier(.4, 0, .2, 1);
+  --t-slow: 420ms cubic-bezier(.4, 0, .2, 1);
+}
+
+@media (min-width: 48rem) {
+  :root {
+    --fs-700: 2.125rem;  /* 34px */
+    --fs-800: 2.75rem;   /* 44px */
+    --space-section: 6rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  :root {
+    --fs-500: 1.1875rem;
+    --fs-600: 1.5rem;
+    --fs-700: 2.5rem;   /* 40px */
+    --fs-800: 3.4rem;   /* 54px — teto do hero */
+    --space-section: 7.5rem;
+    --gutter: 2rem;
+  }
+}
+
+/* ===================== Reset enxuto ===================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--fs-400);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.14;
+  letter-spacing: -.012em;
+}
+
+p { margin: 0 0 1.1em; }
+p:last-child { margin-bottom: 0; }
+
+img, svg { display: block; max-width: 100%; }
+
+a { color: inherit; }
+
+ul { margin: 0; padding: 0; list-style: none; }
+
+button, input, textarea { font: inherit; color: inherit; }
+
+/* Foco de teclado visível em tudo que é interativo */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 100;
+  padding: .625rem 1rem;
+  background: var(--gold);
+  color: var(--navy-deep);
+  font-size: var(--fs-300);
+  font-weight: 600;
+  text-decoration: none;
+  transition: top var(--t-fast);
+}
+.skip-link:focus { top: 1rem; }
+
+/* ===================== Estruturas base ===================== */
+
+.shell {
+  width: 100%;
+  max-width: var(--shell);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.shell--narrow { max-width: 820px; }
+
+.section { padding-block: var(--space-section); }
+
+/* a cápsula do header flutua sobre a página: os alvos de âncora recuam por baixo dela */
+section[id] { scroll-margin-top: calc(var(--bar-top) + var(--bar-h) + 1.5rem); }
+
+/* A tela da página é creme. As seções escuras não encostam nas bordas:
+   são lajes apoiadas sobre ela, com folga dos dois lados. As claras não
+   têm borda visível — elas são a própria tela. */
+.section--navy,
+.section--navy-mid {
+  width: calc(min(100%, var(--shell)) - var(--slab-edge) * 2);
+  margin-inline: auto;
+  border-radius: var(--radius-slab);
+}
+
+.section--navy     { background: var(--navy-deep); color: var(--white); }
+.section--navy-mid { background: var(--navy-mid);  color: var(--white); }
+.section--cream    { background: var(--cream);     color: var(--ink); }
+
+/* A laje recua, mas o conteúdo dentro dela não pode recuar junto: sem isso
+   o texto das seções escuras desalinharia do texto das claras. */
+.section--navy > .shell,
+.section--navy-mid > .shell {
+  max-width: none;
+  padding-inline: var(--slab-pad);
+}
+
+.section--cream > .shell {
+  padding-inline: calc(var(--slab-edge) + var(--slab-pad));
+}
+
+/* a faixa logo abaixo do hero ganha respiro para descolar da foto */
+.strip { margin-top: var(--slab-edge); }
+
+
+@media (min-width: 48rem) {
+  :root { --radius-slab: 2.5rem; --slab-edge: .75rem; --slab-pad: 2.75rem; }
+}
+
+@media (min-width: 64rem) {
+  :root { --slab-edge: 1rem; --slab-pad: 4.5rem; }
+}
+
+.section--navy p,
+.section--navy-mid p { color: var(--white-soft); }
+
+.section__head { max-width: 62ch; margin-bottom: 3rem; }
+
+.section__title { font-size: var(--fs-700); }
+
+.section__lede {
+  margin-top: 1.125rem;
+  max-width: 68ch;
+  font-size: var(--fs-500);
+  line-height: 1.7;
+}
+.section--navy .section__lede { line-height: 1.75; }
+
+.section__note {
+  margin-top: 2.5rem;
+  max-width: 74ch;
+  font-size: var(--fs-200);
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+.eyebrow {
+  margin: 0 0 1.25rem;
+  font-size: var(--fs-200);
+  letter-spacing: .11em;
+  text-transform: uppercase;
+  color: var(--steel);
+}
+
+/* ===================== Bento =====================
+   Malha de 12 colunas em que cada bloco de conteúdo é uma célula com
+   superfície própria. A superfície vem do contexto da seção, então a
+   alternância claro/escuro entre seções continua valendo.
+   Abaixo de 48rem tudo desce para uma coluna só.
+   ================================================== */
+
+.bento {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: .875rem;
+  align-items: stretch;
+}
+
+/* Cabeçalho e notas de rodapé da seção: largura cheia, sem moldura */
+.bento__head,
+.bento__note {
+  grid-column: 1 / -1;
+}
+
+.bento__head { margin-bottom: 1.25rem; }
+.bento__note { margin-top: 1.25rem; }
+
+.cell {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 1.875rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-lg);
+  transition: border-color var(--t-base), background-color var(--t-base);
+}
+
+@media (min-width: 48rem) {
+  .cell--3  { grid-column: span 3; }
+  .cell--4  { grid-column: span 4; }
+  .cell--6  { grid-column: span 6; }
+  .cell--8  { grid-column: span 8; }
+  .cell--12 { grid-column: 1 / -1; }
+  .cell--tall { grid-row: span 2; }
+}
+
+/* Superfícies — herdadas do fundo da seção */
+.section--cream .cell {
+  background: var(--white);
+  border-color: var(--ink-line);
+}
+.section--navy .cell,
+.section--navy-mid .cell {
+  background: none;
+  border-color: transparent;
+  padding: 0;
+}
+
+/* o destaque é a única caixa da laje, então mantém respiro próprio */
+.section--navy .cell--accent,
+.section--navy-mid .cell--accent { padding: 1.75rem; }
+
+/* sem moldura, a separação entre colunas precisa de mais vão */
+.section--navy .bento,
+.section--navy-mid .bento { gap: 2.5rem; }
+
+@media (min-width: 48rem) {
+  .section--navy .bento,
+  .section--navy-mid .bento { gap: 2.5rem 3rem; }
+}
+
+/* Célula de destaque: a mesma em fundo claro e escuro */
+.cell--accent {
+  background: var(--gold-fill) !important;
+  border-color: var(--gold-line) !important;
+}
+
+/* Célula que é só imagem: a foto encosta na borda */
+.cell--media {
+  padding: 0;
+  overflow: hidden;
+}
+
+@media (max-width: 47.9375rem) {
+  .bento {
+    grid-template-columns: minmax(0, 1fr);
+    gap: .75rem;
+  }
+  .cell { padding: 1.375rem; }
+}
+
+/* Linha de registros — usada na seção de contato e no rodapé */
+.credentials {
+  margin: 2.5rem 0 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--steel-line);
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem .75rem;
+  font-size: var(--fs-200);
+  color: var(--steel);
+}
+.credentials__code {
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: .05em;
+}
+.credentials__sep { color: var(--steel-line); }
+
+/* ===================== Botões e links ===================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: .875rem 1.625rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-300);
+  font-weight: 600;
+  letter-spacing: .01em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--t-base), color var(--t-base), border-color var(--t-base);
+}
+
+.btn--gold {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--navy-deep);
+}
+.btn--gold:hover { background: var(--gold-hover); border-color: var(--gold-hover); }
+
+.btn--ghost {
+  background: transparent;
+  border-color: var(--glass-line-str);
+  color: var(--white);
+  font-weight: 400;
+  border-radius: var(--radius-pill);
+}
+.btn--ghost:hover { background: var(--glass-strong); border-color: var(--white); }
+
+.btn--block { width: 100%; }
+
+.link-quiet {
+  position: relative;
+  font-size: var(--fs-300);
+  font-weight: 500;
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--steel-line);
+  transition: border-color var(--t-base), color var(--t-base);
+}
+.link-quiet:hover { border-color: var(--gold); color: var(--white); }
+
+/* ===================== Header ===================== */
+
+/* Barra flutuante em cápsula, sobreposta ao hero.
+   A altura de fluxo (--bar-top + --bar-h) é o recuo que o hero desconta. */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  padding-top: var(--bar-top);
+  pointer-events: none;   /* só a cápsula recebe clique */
+}
+
+.site-header__bar {
+  pointer-events: auto;
+  width: min(100% - (var(--gutter) * 2), var(--bar));
+  min-height: var(--bar-h);
+  margin-inline: auto;
+  padding-inline: 1.5rem 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--white);
+  background: var(--glass);
+  border: 1px solid var(--glass-line);
+  border-radius: var(--radius-lg);
+  -webkit-backdrop-filter: blur(16px) saturate(130%);
+  backdrop-filter: blur(16px) saturate(130%);
+  transition: background-color var(--t-base), border-color var(--t-base);
+}
+
+.site-header--solid .site-header__bar,
+.site-header.is-stuck .site-header__bar {
+  background: var(--glass-strong);
+  border-color: var(--glass-line-str);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--white);
+}
+
+.brand__logo {
+  height: 4.25rem;
+  margin-left: -1rem;   /* compensa a margem branca interna do arquivo de marca */
+  width: auto;
+  /* o arquivo de marca é preto; aqui ele é usado sobre fundo escuro */
+  filter: brightness(0) invert(1);
+}
+
+/* Navegação desktop */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 2.75rem;
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  gap: 2.75rem;
+}
+
+.nav__list a {
+  font-size: var(--fs-200);
+  text-decoration: none;
+  color: var(--white-soft);
+  padding-block: .25rem;
+  border-bottom: 1px solid transparent;
+  transition: color var(--t-base), border-color var(--t-base);
+}
+.nav__list a:hover { color: var(--white); border-bottom-color: var(--sand); }
+
+.nav__cta { padding: .375rem 1.375rem; font-size: var(--fs-200); }
+
+.nav-toggle {
+  display: none;
+  align-items: center;
+  gap: .5rem;
+  padding: .5rem .75rem;
+  background: none;
+  border: 1px solid var(--glass-line-str);
+  border-radius: var(--radius-pill);
+  color: var(--white);
+  cursor: pointer;
+  transition: border-color var(--t-base);
+}
+.nav-toggle:hover { border-color: var(--sand); }
+
+.nav-toggle__bars {
+  display: grid;
+  gap: 4px;
+  width: 18px;
+}
+.nav-toggle__bars i {
+  display: block;
+  height: 1.5px;
+  background: currentColor;
+  transition: transform var(--t-base);
+}
+.nav-toggle__label {
+  font-size: var(--fs-100);
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 61.9375rem) {
+  .nav-toggle { display: inline-flex; }
+
+  .nav {
+    position: absolute;
+    top: calc(100% + .625rem);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    max-height: calc(100svh - var(--bar-top) - var(--bar-h) - 2.5rem);
+    overflow-y: auto;
+    padding: .5rem 1.375rem 1.375rem;
+    background: var(--coal);
+    border: 1px solid var(--glass-line);
+    border-radius: var(--radius-lg);
+    transform: translateY(-8px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--t-base), transform var(--t-base), visibility var(--t-base);
+  }
+  .nav.is-open { transform: none; opacity: 1; visibility: visible; }
+
+  .nav__list { flex-direction: column; align-items: stretch; gap: 0; }
+  .nav__list a {
+    display: block;
+    padding: .875rem 0;
+    border-bottom: 1px solid var(--glass-line);
+    font-size: var(--fs-400);
+  }
+  .nav__list a:hover { border-bottom-color: var(--sand); }
+  .nav__cta { margin-top: 1.25rem; padding: .875rem 1.25rem; }
+}
+
+/* ===================== Hero ===================== */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  min-height: 100svh;
+  margin-top: calc((var(--bar-top) + var(--bar-h)) * -1);  /* header sobreposto */
+  padding-top: calc(var(--bar-top) + var(--bar-h) + 2.75rem);
+  padding-bottom: 3.5rem;
+  background: var(--coal);
+  color: var(--white);
+}
+
+/* Fotografia de fundo — versão vertical no celular, horizontal no restante */
+.hero__media {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;   /* prende a deriva lenta dentro do quadro */
+  z-index: -2;
+}
+.hero__media picture,
+.hero__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.hero__media img {
+  object-fit: cover;
+  object-position: 40% center;   /* o corte lateral sai da direita, longe do texto */
+}
+
+/* Deriva lenta: a foto respira sem sair do enquadramento justo.
+   Começa e volta à escala 1 — o quadro em repouso é a tela inteira. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero__media img {
+    transform-origin: 62% 42%;
+    animation: hero-deriva 24s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes hero-deriva {
+  from { transform: scale(1); }
+  to   { transform: scale(1.06); }
+}
+
+/* Véu: escurece o lado do texto sem apagar o retrato */
+.hero__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, var(--veil-82) 0%, var(--veil-60) 12%, var(--veil-00) 32%),
+    linear-gradient(0deg, var(--veil-82) 0%, var(--veil-00) 13%),
+    linear-gradient(90deg, var(--veil-92) 0%, var(--veil-82) 22%, var(--veil-60) 40%, var(--veil-20) 58%, var(--veil-00) 76%);
+}
+
+/* Marca esmaecida sangrando pela esquerda — o arquivo já vem recortado e
+   borrado, com 10% de branco. Fica acima do véu (senão o véu a apaga) e
+   abaixo do texto. */
+.hero__mark {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  translate: 0 -50%;
+  z-index: -1;
+  width: auto;
+  height: min(88%, 46rem);
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero__inner {
+  position: relative;
+  width: min(100% - (var(--gutter) * 2), var(--bar));
+  margin-inline: auto;
+}
+
+.hero__copy { max-width: 38rem; }
+
+.hero__eyebrow {
+  display: inline-block;
+  margin: 0;
+  padding: .4375rem 1.25rem;
+  border: 1px solid var(--glass-line-str);
+  border-radius: var(--radius-pill);
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  font-size: var(--fs-100);
+  font-weight: 400;
+  letter-spacing: .09em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: var(--white-soft);
+}
+
+.hero__title {
+  margin-top: 1rem;
+  font-size: clamp(2.25rem, 3.8vw, 3.4rem);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -.015em;
+}
+.hero__title em {
+  font-style: normal;
+  color: var(--sand);
+}
+
+.hero__lede {
+  margin-top: 1.5rem;
+  max-width: 33rem;
+  font-size: var(--fs-300);
+  line-height: 1.6;
+  color: var(--white-soft);
+}
+
+.hero__note {
+  margin-top: 1.375rem;
+  font-size: var(--fs-300);
+  color: var(--white);
+}
+
+.hero__action {
+  margin-top: 1.375rem;
+  width: fit-content;
+}
+
+.hero__cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-width: 20.5rem;
+  padding: 1.75rem 1.375rem;
+  border-radius: var(--radius-md);
+  background: var(--sand-grad);
+  color: var(--ink);
+  font-size: var(--fs-300);
+  font-weight: 500;
+  letter-spacing: .005em;
+  text-decoration: none;
+  transition: filter var(--t-base), transform var(--t-base);
+}
+.hero__cta:hover { filter: brightness(1.06); transform: translateY(-1px); }
+
+.hero__cta-icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  color: var(--ink);
+}
+.hero__cta-icon svg { width: .875rem; height: .875rem; }
+
+.hero__proof {
+  margin: .875rem 0 0;
+  padding-right: 1rem;
+  text-align: right;
+  line-height: 1;
+  color: var(--white-mute);
+}
+.hero__proof strong {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 500;
+  letter-spacing: .02em;
+  color: var(--sand);
+}
+.hero__proof span { font-size: var(--fs-100); }
+
+/* --- Telas em retrato (celular e tablet): foto vertical no topo,
+       texto sobre a base escura --- */
+@media (max-width: 47.9375rem), (max-width: 63.9375rem) and (orientation: portrait) {
+  .hero {
+    align-items: flex-end;
+    padding-bottom: 2.5rem;
+  }
+
+  /* a foto ocupa a parte de cima; o rosto fica livre de qualquer texto */
+  .hero__media { inset: 0 0 auto 0; height: 58%; }
+  .hero__media img { object-position: center 44%; }
+
+  .hero__scrim {
+    background:
+      linear-gradient(180deg, var(--veil-82) 0%, var(--veil-00) 22%),
+      linear-gradient(180deg, var(--veil-00) 20%, var(--veil-70) 34%, var(--coal) 50%);
+  }
+
+  /* a marca desce para a base escura: nunca lava o rosto da foto */
+  .hero__mark { top: auto; bottom: 0; translate: none; height: 46%; }
+
+  .hero__eyebrow {
+    font-size: .625rem;
+    letter-spacing: .05em;
+    padding-inline: .75rem;
+  }
+  .hero__title { margin-top: .875rem; }
+  .hero__lede { margin-top: 1.125rem; }
+  .hero__note { margin-top: 1rem; }
+
+  .hero__action { width: 100%; max-width: 22.5rem; margin-top: 1.25rem; }
+  .hero__cta { min-width: 0; width: 100%; padding: 1.375rem 1.25rem; }
+  .hero__proof { text-align: left; padding-right: 0; }
+}
+
+/* ===================== Placeholders visíveis ===================== */
+
+.ph {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: .5rem;
+  padding: 1rem;
+  border: 1px dashed var(--gold-line);
+  border-radius: var(--radius-md);
+  background: var(--gold-fill);
+}
+
+.ph--portrait { aspect-ratio: 4 / 5; }
+.ph--tall { aspect-ratio: 3 / 4; }
+
+.ph--note {
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: .75rem;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.ph__tag {
+  /* sem align-self: segue o align-items do contêiner (esquerda no "antes",
+     direita no "depois", que tem o lado esquerdo recortado) */
+  padding: .1875rem .5rem;
+  border-radius: var(--radius-pill);
+  background: var(--gold);
+  color: var(--navy-deep);
+  font-size: var(--fs-100);
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.ph__text {
+  font-size: var(--fs-200);
+  line-height: 1.5;
+  color: var(--ink-soft);
+  max-width: 34ch;
+}
+.section--navy .ph__text,
+.hero .ph__text { color: var(--steel); }
+
+.ph__inline {
+  display: inline-block;
+  padding: .125rem .4375rem;
+  border: 1px dashed var(--gold-line);
+  border-radius: var(--radius-sm);
+  background: var(--gold-fill);
+  color: inherit;
+}
+
+/* ===================== Faixa de confiança ===================== */
+
+.strip { padding-block: 2.25rem; }
+
+.strip__text {
+  margin: 0;
+  font-size: var(--fs-400);
+  line-height: 1.6;
+  letter-spacing: .01em;
+  color: var(--white-soft);
+  max-width: 60ch;
+}
+
+/* dentro de célula a linha de registros não precisa de régua nem de recuo */
+.credentials--flat {
+  margin: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
+/* ===================== Sobre ===================== */
+
+.sobre__media { margin: 0; }
+
+.sobre__photo {
+  width: 100%;
+  flex: 1 1 0;
+  min-height: 16rem;
+  object-fit: cover;
+  object-position: center 78%;   /* o topo do arquivo é fundo preto */
+}
+
+.sobre__caption {
+  padding: 1rem 1.25rem;
+  font-size: var(--fs-200);
+  color: var(--ink-soft);
+}
+
+.sobre__copy p { color: var(--ink-soft); }
+.sobre__copy p:last-child { margin-bottom: 0; }
+
+.ticklist { border-top: 1px solid var(--ink-line); }
+.ticklist li {
+  position: relative;
+  padding: .875rem 0 .875rem 1.75rem;
+  border-bottom: 1px solid var(--ink-line);
+  font-size: var(--fs-300);
+}
+.ticklist li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1.4rem;
+  width: .75rem;
+  height: 1px;
+  background: var(--gold);
+}
+
+/* ===================== Procedimentos ===================== */
+
+.section--navy .card {
+  border-top: 2px solid var(--gold);
+  border-radius: 0;
+}
+.section--navy .card:hover { background: var(--steel-fill); border-radius: var(--radius-lg); }
+
+.card__index {
+  display: block;
+  margin-bottom: 1.25rem;
+  font-family: var(--font-display);
+  font-size: var(--fs-300);
+  color: var(--steel);
+  letter-spacing: .08em;
+}
+
+.card__title {
+  font-size: var(--fs-600);
+  margin-bottom: .875rem;
+  text-wrap: balance;
+}
+
+.card p {
+  font-size: var(--fs-300);
+  line-height: 1.7;
+}
+
+.section__foot {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.section__foot-text {
+  margin: 0;
+  font-size: var(--fs-500);
+  line-height: 1.35;
+  font-family: var(--font-display);
+  color: var(--white);
+}
+
+/* ===================== Antes / Depois ===================== */
+
+.ba { margin: 0; }
+
+/* Cada caso é uma imagem só: o arquivo já traz antes e depois empilhados. */
+.ba__plate {
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+}
+
+/* régua só no caso 1, onde os dois painéis se encostam sem separação própria;
+   os arquivos 2 e 3 já trazem a divisão desenhada */
+.ba__plate--rule::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: var(--cream);
+  opacity: .55;
+  pointer-events: none;
+}
+
+.ba__photo {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  background: var(--navy-deep);
+}
+
+.ba__caption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .5rem .75rem;
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+.ba__metric {
+  font-family: var(--font-display);
+  font-size: var(--fs-600);
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -.01em;
+}
+
+.ba__caption-text {
+  font-size: var(--fs-300);
+  color: var(--ink-soft);
+}
+
+
+
+/* ===================== Depoimentos ===================== */
+
+.quote { margin: 0; }
+
+.section--navy .quote {
+  padding-left: 1.75rem;
+  border-left: 2px solid var(--gold);
+  border-radius: 0;
+}
+
+.quote blockquote {
+  margin: 0 0 1.5rem;
+  flex: 1 1 auto;
+  font-family: var(--font-display);
+  font-size: var(--fs-500);
+  line-height: 1.55;
+}
+.quote blockquote::before {
+  content: "\201C";
+  display: block;
+  margin-bottom: .25rem;
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  line-height: 1;
+  color: var(--gold);
+}
+.quote blockquote p { color: var(--white); }
+
+.quote figcaption {
+  display: grid;
+  gap: .375rem;
+  justify-items: start;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--steel-line);
+  font-size: var(--fs-200);
+}
+.quote__who { color: var(--white); }
+
+.quotes__fonte {
+  font-size: var(--fs-200);
+  color: var(--steel);
+}
+.quotes__fonte .link-quiet { margin-left: .375rem; }
+.quote__what { color: var(--steel); }
+
+/* ===================== FAQ ===================== */
+
+.faq { padding-block: .5rem; }
+
+.faq__item + .faq__item { border-top: 1px solid var(--ink-line); }
+
+.faq__heading { margin: 0; font-family: var(--font-body); font-weight: 400; }
+
+.faq__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  width: 100%;
+  padding: 1.375rem 0;
+  background: none;
+  border: 0;
+  text-align: left;
+  font-family: var(--font-display);
+  font-size: var(--fs-500);
+  line-height: 1.35;
+  cursor: pointer;
+  padding-inline: .75rem;
+  margin-inline: -.75rem;
+  transition: background-color var(--t-base);
+}
+/* hover não altera a cor do texto: dourado sobre creme reprovaria AA */
+.faq__trigger:hover { background: var(--gold-fill); }
+
+.faq__icon {
+  position: relative;
+  flex: none;
+  width: .875rem;
+  height: .875rem;
+}
+.faq__icon::before,
+.faq__icon::after {
+  content: "";
+  position: absolute;
+  inset: 50% 0 auto;
+  height: 1.5px;
+  background: var(--gold);
+  transition: transform var(--t-base), opacity var(--t-base);
+}
+.faq__icon::after { transform: rotate(90deg); }
+.faq__trigger[aria-expanded="true"] .faq__icon::after { transform: rotate(0deg); opacity: 0; }
+
+.faq__panel { overflow: hidden; }
+.faq__panel-inner {
+  padding: 0 0 1.5rem;
+  max-width: 68ch;
+  font-size: var(--fs-300);
+  color: var(--ink-soft);
+}
+
+/* animação de abertura (desativada em prefers-reduced-motion mais abaixo) */
+.faq__panel.is-animating { transition: height var(--t-base); }
+
+/* ===================== Contato ===================== */
+
+.contato__copy .section__lede { max-width: 46ch; }
+.contato__copy .credentials { margin-top: auto; }
+
+.contato__address {
+  margin: 0;
+  font-size: var(--fs-300);
+  line-height: 1.7;
+  color: var(--white-soft);
+}
+
+.contato__direct { justify-content: center; }
+
+.contato__label {
+  margin-bottom: .5rem;
+  font-size: var(--fs-100);
+  letter-spacing: .11em;
+  text-transform: uppercase;
+  color: var(--steel);
+}
+
+.contato__phone {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-600);
+  color: var(--white);
+}
+
+.contato__phone-link {
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold-line);
+  padding-bottom: 2px;
+  transition: border-color var(--t-base);
+}
+.contato__phone-link:hover { border-color: var(--gold); }
+
+.contato__place { margin: .875rem 0 0; }
+
+.form-wrap { justify-content: center; }
+
+.field { margin-bottom: 1.25rem; }
+
+.field__label {
+  display: block;
+  margin-bottom: .5rem;
+  font-size: var(--fs-200);
+  letter-spacing: .04em;
+  color: var(--steel);
+}
+
+.field__input {
+  width: 100%;
+  padding: .875rem 1rem;
+  background: var(--navy-deep);
+  border: 1px solid var(--steel-line-str);
+  border-radius: var(--radius-md);
+  color: var(--white);
+  transition: border-color var(--t-base), background-color var(--t-base);
+}
+.field__input::placeholder { color: var(--steel); opacity: 1; }
+.field__input:hover { border-color: var(--steel-line-str); }
+.field__input:focus { border-color: var(--gold); outline: none; }
+.field__input:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+.field__input[aria-invalid="true"] { border-color: var(--gold); background: var(--gold-fill); }
+
+.field__area {
+  display: block;
+  min-height: 6.5rem;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.field__hint {
+  margin: .5rem 0 0;
+  font-size: var(--fs-100);
+  color: var(--steel);
+}
+
+.field__error {
+  margin: .5rem 0 0;
+  font-size: var(--fs-200);
+  color: var(--gold);
+}
+
+.form__privacy {
+  margin: 1rem 0 0;
+  font-size: var(--fs-100);
+  line-height: 1.55;
+  color: var(--steel);
+}
+
+.form__status {
+  margin: 0;
+  font-size: var(--fs-300);
+  color: var(--white);
+}
+.form__status:not(:empty) {
+  margin-top: 1.25rem;
+  padding: .875rem 1rem;
+  border: 1px solid var(--gold-line);
+  border-radius: var(--radius-sm);
+  background: var(--gold-fill);
+}
+
+/* ===================== Como chegar ===================== */
+
+.mapa { padding-block: calc(var(--space-section) * .62); }
+
+.mapa__frame { min-height: 24rem; }
+
+.mapa__embed {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 24rem;
+  border: 0;
+}
+
+.mapa__info { justify-content: center; }
+
+.section--cream .contato__label { color: var(--ink-soft); }
+
+.mapa__name {
+  margin: 0 0 .375rem;
+  font-family: var(--font-display);
+  font-size: var(--fs-600);
+  color: var(--ink);
+}
+
+.mapa__info .contato__address { color: var(--ink-soft); }
+
+/* em fundo claro o hover branco do link discreto sumiria */
+.section--cream .link-quiet:hover { color: var(--ink); }
+
+/* ===================== Documentos legais =====================
+   Página de termos e privacidade. Herda tudo do sistema; o que muda
+   é a coluna de leitura, estreita, e a hierarquia de títulos numerados.
+   ============================================================== */
+
+.legal__head { max-width: 46rem; }
+
+.legal__eyebrow {
+  margin: 0 0 1rem;
+  font-size: var(--fs-100);
+  letter-spacing: .11em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.legal__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-700);
+  font-weight: 500;
+  line-height: 1.14;
+  letter-spacing: -.012em;
+}
+
+.legal__lede {
+  margin-top: 1.25rem;
+  font-size: var(--fs-500);
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+
+.legal__meta {
+  margin-top: 1.25rem;
+  font-size: var(--fs-200);
+  color: var(--ink-soft);
+}
+
+/* Índice */
+.legal__toc {
+  margin-top: 2.5rem;
+  padding: 1.5rem 1.75rem;
+  border: 1px solid var(--ink-line);
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  max-width: 34rem;
+}
+
+.legal__toc-title {
+  margin: 0 0 .75rem;
+  font-size: var(--fs-100);
+  letter-spacing: .11em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.legal__toc-list {
+  list-style: decimal;
+  padding-left: 1.25rem;
+  display: grid;
+  gap: .5rem;
+  font-size: var(--fs-300);
+}
+.legal__toc-list a {
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold-line);
+  transition: border-color var(--t-base);
+}
+.legal__toc-list a:hover { border-color: var(--gold); }
+
+/* Corpo do documento */
+.legal__body {
+  max-width: 44rem;
+  margin-top: 3rem;
+  scroll-margin-top: calc(var(--bar-top) + var(--bar-h) + 1.5rem);
+}
+
+.legal__body p {
+  font-size: var(--fs-300);
+  line-height: 1.75;
+  margin-bottom: 1.25em;
+}
+
+.legal__h2 {
+  margin: 0 0 1.75rem;
+  font-family: var(--font-display);
+  font-size: var(--fs-600);
+  font-weight: 500;
+  line-height: 1.2;
+  scroll-margin-top: calc(var(--bar-top) + var(--bar-h) + 1.5rem);
+}
+
+.legal__h3 {
+  margin: 2.5rem 0 .875rem;
+  font-family: var(--font-body);
+  font-size: var(--fs-400);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.legal__list {
+  margin: 0 0 1.5rem;
+  padding-left: 1.25rem;
+  list-style: disc;
+  display: grid;
+  gap: .625rem;
+  font-size: var(--fs-300);
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+
+/* Lista de serviços de terceiros */
+.legal__terceiros {
+  margin: 0 0 1.5rem;
+  display: grid;
+  gap: 1.5rem;
+}
+.legal__terceiros dt {
+  font-weight: 600;
+  font-size: var(--fs-300);
+  margin-bottom: .375rem;
+}
+.legal__terceiros dd {
+  margin: 0;
+  font-size: var(--fs-300);
+  line-height: 1.7;
+  padding-left: 1rem;
+  border-left: 2px solid var(--gold-line);
+}
+
+.legal__body code {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: .875em;
+}
+
+.legal__voltar { margin-top: 2.5rem; }
+
+/* Em seção escura o corpo troca de cor, mantendo a mesma estrutura */
+.legal--dark .legal__body p,
+.legal--dark .legal__list,
+.legal--dark .legal__terceiros dd { color: var(--white-soft); }
+
+.legal--dark .legal__terceiros dt,
+.legal--dark .legal__h2,
+.legal--dark .legal__h3 { color: var(--white); }
+
+.legal--dark .legal__body code { color: var(--steel); }
+
+@media (max-width: 47.9375rem) {
+  .legal__toc { padding: 1.25rem 1.375rem; }
+  .legal__body { margin-top: 2.25rem; }
+}
+
+/* ===================== Rodapé ===================== */
+
+.footer {
+  background: var(--navy-deep);
+  color: var(--white);
+  border-top: 1px solid var(--steel-line);
+  padding-block: 3.5rem 2rem;
+}
+
+.footer__grid {
+  display: grid;
+  gap: 2.25rem;
+}
+
+@media (min-width: 48rem) {
+  .footer__grid { grid-template-columns: repeat(2, 1fr); gap: 2.5rem 3rem; }
+}
+@media (min-width: 64rem) {
+  .footer__grid { grid-template-columns: 1.3fr 1fr 1fr 1fr; }
+}
+
+.footer p { margin: 0 0 .5rem; color: var(--white-soft); font-size: var(--fs-300); }
+.footer p:last-child { margin-bottom: 0; }
+
+.brand__mark {
+  display: block;
+  color: var(--gold);
+}
+.brand__mark svg { width: 100%; height: auto; }
+.brand__mark--footer { width: 1.75rem; margin-bottom: 1rem; }
+
+.footer__name {
+  font-family: var(--font-display);
+  font-size: var(--fs-600);
+  color: var(--white) !important;
+}
+.footer__role { font-size: var(--fs-200) !important; color: var(--steel) !important; }
+
+.footer__label {
+  font-size: var(--fs-100) !important;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+  color: var(--steel) !important;
+  margin-bottom: .75rem !important;
+}
+
+.footer__link {
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold-line);
+  padding-bottom: 1px;
+  transition: border-color var(--t-base), color var(--t-base);
+}
+.footer__link:hover { border-color: var(--gold); color: var(--white); }
+
+.footer__meta { font-size: var(--fs-200) !important; color: var(--steel) !important; }
+
+.footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: .5rem 2rem;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--steel-line);
+}
+.footer__bottom p { font-size: var(--fs-200); color: var(--steel); }
+
+/* ===================== Movimento ===================== */
+
+/* 1. Ênfase pontual nos blocos de prova (resultados e depoimentos) */
+[data-reveal] { opacity: 1; }
+
+.js [data-reveal].reveal-pending {
+  opacity: 0;
+  transform: translateY(14px);
+}
+.js [data-reveal].reveal-in {
+  opacity: 1;
+  transform: none;
+  transition: opacity var(--t-slow), transform var(--t-slow);
+}
+
+/* Offset para âncoras sob o header fixo */
+[id] { scroll-margin-top: 5.5rem; }
+
+/* 2. Fallback estático completo */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+
+  .js [data-reveal].reveal-pending { opacity: 1; transform: none; }
+
+  .faq__panel.is-animating { transition: none; }
+}

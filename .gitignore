@@ -1,0 +1,16 @@
+# Dependencias — reinstalar com `npm install`
+node_modules/
+
+# Documento do cliente: contrato/proposta, nao pertence ao repositorio publico
+assets/img/*.pdf
+
+# Pacote bruto do gerador de favicon
+assets/img/favicon.zip
+
+# Capturas de auditoria: pesadas e regeneraveis com os scripts de _audit
+_audit/shots/
+
+# Sistema
+Thumbs.db
+desktop.ini
+.DS_Store
