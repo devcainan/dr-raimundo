@@ -137,12 +137,36 @@ páginas. Reaproveita header, rodapé e tokens; o que é próprio dela são as c
   WhatsApp são exportadas para algum sistema de gestão e por quanto tempo ficam guardadas antes do
   descarte (item 2.5). Não foram informados pessoa jurídica nem CNPJ — se o consultório um dia
   passar a operar como empresa, o item 1.1 muda. A data de "última atualização" está em
-  8 de setembro de 2026 — **precisa ser trocada sempre que o texto mudar.**
+  21 de setembro de 2026 — **precisa ser trocada sempre que o texto mudar.**
 - A lista de terceiros do item 4 **não foi escrita de cabeça**: veio de rodar a página e registrar
-  os hosts efetivamente contatados (Google Fonts, Google Maps) mais os links de saída (WhatsApp,
-  Instagram). Se um dia entrar analytics, pixel ou chat, **essa lista precisa ser atualizada junto**.
-- A afirmação "não usa cookies próprios" também foi verificada (`localStorage` e `document.cookie`
-  vazios). Vale reconferir antes de publicar se algo tiver sido acrescentado.
+  os hosts efetivamente contatados (Google Tag Manager, Google Fonts, Google Maps) mais os links de
+  saída (WhatsApp, Instagram). Se um dia entrar outro pixel ou um chat, **essa lista precisa ser
+  atualizada junto**.
+- O site **deixou de ser livre de rastreadores** quando o Google Tag Manager entrou — ver a seção
+  "Google Tag Manager" abaixo. As duas afirmações de "não usa cookies próprios" (itens 2.2 e 4)
+  foram reescritas na mesma leva, porque tinham virado declaração falsa.
+
+## Google Tag Manager
+
+Contêiner `GTM-5F9BD9FF`, instalado em **ambas as páginas**: o `<script>` no topo do `<head>`,
+logo após o `theme-color`, e o `<noscript>` como primeiro elemento do `<body>`. É o snippet do
+Google sem alteração, com uma adição: `title="Google Tag Manager"` no `<iframe>`, que o snippet
+original não traz e que o axe cobra.
+
+Verificado rodando as duas páginas em `http://` (não em `file://`, onde o GTM tenta um XHR no CSS
+e o CORS barra, gerando erro falso): `dataLayer` criado, `gtm.js` requisitado uma vez por página,
+zero erros de console, zero violações de acessibilidade.
+
+**O que isso obriga**, e ainda está em aberto:
+
+- **Não há banner de consentimento.** A política declara base legal de legítimo interesse
+  (art. 7º, IX) para a medição. Para cookies de marketing ou remarketing, legítimo interesse não
+  cobre — aí passa a exigir consentimento prévio, com banner.
+- **O contêiner define o que é coletado.** A política descreve o GTM como gerenciador e diz que o
+  que é medido depende das etiquetas ativas. Se entrar GA4, Meta Pixel ou Google Ads, o item 4
+  precisa nomear cada um.
+- **O preview tem `noindex`, mas o GTM dispara assim mesmo.** Enquanto o site estiver no ar só
+  para o cliente ver, o tráfego de teste entra na medição.
 
 **Este texto não substitui revisão jurídica.** Ele foi escrito para dar estrutura e cobrir o que a
 LGPD pede, a partir do que o site realmente faz — mas quem responde por ele é o cliente.
