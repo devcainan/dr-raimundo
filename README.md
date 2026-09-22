@@ -173,16 +173,19 @@ cor de marca do site; se destoar demais da identidade, trocar por `--sand` é um
 
 ## Cache do CDN da Hostinger — ler antes de publicar CSS ou JS
 
-O CDN serve  (7 dias) nos assets **e guarda variantes
-comprimidas separadas**. Na prática: depois de um deploy, o  sem compressão traz o arquivo
+O CDN serve `Cache-Control: public, max-age=604800` (7 dias) nos assets **e guarda variantes
+comprimidas separadas**. Na prática: depois de um deploy, o `curl` sem compressão traz o arquivo
 novo enquanto o navegador, que pede brotli, continua recebendo o antigo. Aconteceu aqui — o md5 no
-servidor batia com o local e mesmo assim o site exibia o layout velho, com o cache do navegador
-desligado.
+servidor batia com o local e mesmo assim o site exibia o layout velho, **com o cache do navegador
+desligado**: o `curl` recebia 37915 bytes com as regras novas e o navegador, 35794 sem elas.
 
-**Por isso os links de CSS e JS carregam .** Trocar o token muda a URL, que é a chave
-de cache, e todas as variantes passam a ser buscadas de novo. **Todo deploy que mexa em
- ou  precisa de um token novo nas duas páginas** — senão a mudança não
-chega em quem já visitou, e pode não chegar nem em visitante novo.
+**Por isso os links de CSS e JS carregam `?v=<token>`.** A query faz parte da chave de cache, então
+trocar o token invalida todas as variantes de uma vez. **Todo deploy que mexa em `styles.css` ou
+`main.js` precisa de um token novo nas duas páginas** — senão a mudança não chega em quem já
+visitou, e pode não chegar nem em visitante novo.
+
+Sintoma típico: md5 local e do servidor batem, mas o site exibe o layout antigo. Não é o deploy que
+falhou — é variante em cache.
 
 ## Google Tag Manager
 
