@@ -128,6 +128,11 @@ meio — quem envia é o paciente, do aparelho dele, e nada trafega nem fica gra
   Não arredondar nem criar outros.
 - **Alternância de fundos** escuro/claro entre seções — não colocar duas seções claras
   ou duas escuras seguidas.
+- **No hero do celular, a faixa da foto é `--faixa-foto` (36svh) e o `padding-top` do hero
+  repete essa medida.** Os dois andam juntos de propósito: é isso que garante que o texto comece
+  abaixo do retrato. Antes a foto era 58% do hero e o texto era ancorado embaixo, então quando a
+  copy crescia ela subia por cima do rosto — era o bug de 169px relatado no iPhone 15. Se mexer
+  numa das duas medidas, mexa na outra.
 
 ## Termos e privacidade
 
@@ -151,6 +156,20 @@ páginas. Reaproveita header, rodapé e tokens; o que é próprio dela são as c
 - O site **deixou de ser livre de rastreadores** quando o Google Tag Manager entrou — ver a seção
   "Google Tag Manager" abaixo. As duas afirmações de "não usa cookies próprios" (itens 2.2 e 4)
   foram reescritas na mesma leva, porque tinham virado declaração falsa.
+
+## Botão flutuante do WhatsApp
+
+Classe `.zap`, no canto inferior direito das duas páginas, dentro de um `<aside>` rotulado —
+solto no `<body>` ele ficava fora de qualquer marco de página e o axe reprovava (regra `region`).
+
+**Ele não aparece no topo da home.** Um `IntersectionObserver` observa `.hero__action` e só
+libera o botão quando o CTA do hero sai da tela. Sem isso os dois pousam no mesmo canto na
+primeira dobra, e o flutuante cobre justamente a seta do botão principal — foi o que aconteceu na
+primeira versão. Na página de termos não há hero, então ele nasce visível. Sem JS (sem a classe
+`.js` no `<html>`), fica visível o tempo todo: o fallback é mostrar, nunca esconder.
+
+O verde é `--whats` em `:root`, não hex solto — a regra de cores vale para ele também. É a única
+cor de marca do site; se destoar demais da identidade, trocar por `--sand` é uma linha.
 
 ## Google Tag Manager
 
