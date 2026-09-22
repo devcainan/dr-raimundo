@@ -171,6 +171,19 @@ primeira versão. Na página de termos não há hero, então ele nasce visível.
 O verde é `--whats` em `:root`, não hex solto — a regra de cores vale para ele também. É a única
 cor de marca do site; se destoar demais da identidade, trocar por `--sand` é uma linha.
 
+## Cache do CDN da Hostinger — ler antes de publicar CSS ou JS
+
+O CDN serve  (7 dias) nos assets **e guarda variantes
+comprimidas separadas**. Na prática: depois de um deploy, o  sem compressão traz o arquivo
+novo enquanto o navegador, que pede brotli, continua recebendo o antigo. Aconteceu aqui — o md5 no
+servidor batia com o local e mesmo assim o site exibia o layout velho, com o cache do navegador
+desligado.
+
+**Por isso os links de CSS e JS carregam .** Trocar o token muda a URL, que é a chave
+de cache, e todas as variantes passam a ser buscadas de novo. **Todo deploy que mexa em
+ ou  precisa de um token novo nas duas páginas** — senão a mudança não
+chega em quem já visitou, e pode não chegar nem em visitante novo.
+
 ## Google Tag Manager
 
 Contêiner `GTM-5F9BD9FF`, instalado em **ambas as páginas**: o `<script>` no topo do `<head>`,
