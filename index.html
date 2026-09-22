@@ -27,7 +27,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="assets/css/styles.css?v=muda5vpk">
+<!-- Marca que há JS antes da primeira pintura. Precisa ser inline e no <head>:
+     o main.js tem defer e só roda depois, e até lá o CSS mostraria os elementos
+     que dependem de .js para se esconder — era o piscar do botão do WhatsApp. -->
+<script>document.documentElement.classList.add('js');</script>
+
+<link rel="stylesheet" href="assets/css/styles.css?v=mudai655">
 </head>
 <body>
 
@@ -607,6 +612,6 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
 </a>
 </aside>
 
-<script src="assets/js/main.js?v=muda5vpk" defer></script>
+<script src="assets/js/main.js?v=mudai655" defer></script>
 </body>
 </html>

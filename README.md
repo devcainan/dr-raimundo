@@ -171,6 +171,12 @@ primeira versão. Na página de termos não há hero, então ele nasce visível.
 O verde é `--whats` em `:root`, não hex solto — a regra de cores vale para ele também. É a única
 cor de marca do site; se destoar demais da identidade, trocar por `--sand` é uma linha.
 
+**A classe `js` no `<html>` é posta por um `<script>` inline no `<head>`, e precisa continuar
+assim.** O `main.js` também a adiciona, mas ele tem `defer`: roda depois da primeira pintura. Como
+o CSS só esconde o botão sob `.js .zap`, na primeira versão ele aparecia por um instante e sumia
+quando o script enfim rodava — piscava em todo carregamento. Qualquer elemento que dependa de
+`.js` para se **esconder** tem esse risco; quem depende de `.js` para **aparecer**, não.
+
 ## Cache do CDN da Hostinger — ler antes de publicar CSS ou JS
 
 O CDN serve `Cache-Control: public, max-age=604800` (7 dias) nos assets **e guarda variantes
