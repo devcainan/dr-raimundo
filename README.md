@@ -111,8 +111,14 @@ meio — quem envia é o paciente, do aparelho dele, e nada trafega nem fica gra
 
 ## Decisões que não devem ser alteradas sem combinar
 
-- **Dois verbos de ação apenas**: "Agendar avaliação" (navegação) e "Solicitar avaliação"
-  (envio do formulário). Não introduzir "Saiba mais", "Fale conosco" e afins.
+- **Dois verbos de ação apenas**: "Agendar avaliação" e "Solicitar avaliação" (envio do
+  formulário). Não introduzir "Saiba mais", "Fale conosco" e afins.
+- **O CTA do hero abre o WhatsApp direto**, a pedido do cliente — não rola mais até `#contato`.
+  Por isso a seta dele aponta para cima-direita (sai do site) e não mais para baixo-esquerda
+  (rolar a página): a diagonal é a única pista visual de para onde o botão leva. Quem quiser o
+  formulário chega por "Contato" no menu. Consequência a acompanhar: o formulário perdeu a porta
+  de entrada principal, então **a medição no GTM passa a ser a única forma de saber se ele ainda
+  é usado**.
 - **Cores só via tokens** de `:root` em `styles.css`. Nenhum hex ou `rgba()` solto no restante
   do arquivo.
 - **Nenhum depoimento fictício.** Os blocos são placeholders justamente para não haver
