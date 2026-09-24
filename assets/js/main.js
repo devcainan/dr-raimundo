@@ -234,28 +234,7 @@
   })();
 
   /* ------------------------------------------------------------------
-     6. Botão flutuante do WhatsApp: espera o CTA do hero sair da tela,
-        senão pousaria em cima do botão principal na primeira dobra.
-        Na página de termos não há hero, então nasce visível.
-     ------------------------------------------------------------------ */
-  (function zap() {
-    var botao = document.querySelector('[data-zap]');
-    if (!botao) return;
-
-    var mostrar = function () { botao.classList.add('is-visivel'); };
-
-    var cta = document.querySelector('.hero__action');
-    if (!cta || !('IntersectionObserver' in window)) { mostrar(); return; }
-
-    var io = new IntersectionObserver(function (entries) {
-      botao.classList.toggle('is-visivel', !entries[0].isIntersecting);
-    });
-
-    io.observe(cta);
-  })();
-
-  /* ------------------------------------------------------------------
-     7. Ano do rodapé
+     6. Ano do rodapé
      ------------------------------------------------------------------ */
   (function year() {
     var el = document.querySelector('[data-year]');

@@ -177,6 +177,36 @@ o CSS só esconde o botão sob `.js .zap`, na primeira versão ele aparecia por 
 quando o script enfim rodava — piscava em todo carregamento. Qualquer elemento que dependa de
 `.js` para se **esconder** tem esse risco; quem depende de `.js` para **aparecer**, não.
 
+## Ícones do site
+
+O `favicon.ico` fica **na raiz** do projeto, não em `assets/`: o navegador pede `/favicon.ico`
+sozinho, sem consultar as tags do `<head>` — era o 404 que aparecia no console. O resto do
+conjunto está em `assets/img/favicon/`, referenciado por caminho relativo para funcionar tanto no
+domínio quanto no preview do GitHub Pages, que serve sob um subcaminho.
+
+Veio do `favicon.zip` (gerado no RealFaviconGenerator, mantido fora do git). Duas coisas do
+pacote **não** foram usadas como vieram:
+
+- O `site.webmanifest` estava com os padrões de fábrica — nome "MyWebSite" e azul `#034b9e`.
+  Foi reescrito com o nome real e a cor da marca (`#0B1D33`). Instalado na tela de início do
+  celular, é esse arquivo que dá nome e cor ao atalho.
+- O `favicon.svg` tem 520 KB, com um raster embutido. Ficou de fora: navegadores que suportam SVG
+  o prefeririam a todos os outros, e baixariam meio mega para desenhar um ícone de aba.
+
+O `assets/img/favicon.png` (390 KB) não é referenciado por nada — é o master de onde o pacote foi
+gerado.
+
+## Ícone do WhatsApp
+
+O botão usa `assets/img/whatsapp.webp`, **192×192 e 11 KB**, gerado a partir do
+`WhatsApp.svg.webp` que o cliente forneceu — esse original, apesar do nome, é um WebP raster de
+3840×3848 e 360 KB, tamanho de master e não de ícone. Os dois estão no repositório; o site carrega
+só o pequeno.
+
+Como a arte já traz a bolha verde, o anel branco e a sombra, **o CSS não desenha fundo nenhum** —
+`.zap` só posiciona e dimensiona. Por isso o token `--whats` foi removido: não havia mais o que
+pintar.
+
 ## Cache do CDN da Hostinger — ler antes de publicar CSS ou JS
 
 O CDN serve `Cache-Control: public, max-age=604800` (7 dias) nos assets **e guarda variantes
